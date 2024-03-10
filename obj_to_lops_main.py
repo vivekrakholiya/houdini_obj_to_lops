@@ -1,3 +1,20 @@
+
+# this script still in development 
+
+# Creted By Vivek Rakholiya
+# Email :- vivekrakholiya53@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
 import hou
 
 selectedNodes = hou.selectedNodes()
@@ -173,8 +190,3 @@ stage.layoutChildren()
 
 
 #############################################################################################
-
-# >>> <hou.OpNodeType for Object hlight::2.0> sceneimport::2.0
-# <hou.OpNodeType for Object envlight>
-
-# <hou.OpNodeType for Object cam>
