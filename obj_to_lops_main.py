@@ -9,19 +9,14 @@
 
 
 
-
-
-
-
-
-
 import hou
 
 selectedNodes = hou.selectedNodes()
 
+selectedNodeslen = len(selectedNodes)
 
-if len(selectedNodes) == 0:
-    print('selected Nodes from obj and try again....')
+if selectedNodeslen == 0:
+    print('Please some node and tr again....')
 
 
 
@@ -48,10 +43,10 @@ for index,node in enumerate(selectedNodes):
     nodeType = node.type()
     if 'geo' in str(nodeType):
         if index == 0:
-            text = "do you want"
+            # text = "do you want"
             userMaterial_inpute = hou.ui.displayMessage("Do You want to transfer materials ?", buttons=("No", "Yes"))
-            if userMaterial_inpute == 1:
-                userMaterial_type = hou.ui.displayMessage("materials from Obj assing or assingmaterials attrib !!{FROM ATTRIB IS IN DEV STAGE NOT WORKING NOW)!! ?", buttons=("From OBJ", "From Attrib"))
+            # if userMaterial_inpute == 1:
+            #     userMaterial_type = hou.ui.displayMessage("materials from Obj assing or assingmaterials attrib !!{FROM ATTRIB IS IN DEV STAGE NOT WORKING NOW)!! ?", buttons=("From OBJ", "From Attrib"))
 
             if userMaterial_inpute == 1:
                 
@@ -67,12 +62,6 @@ for index,node in enumerate(selectedNodes):
         pass
 
 
-
-
-
-###########################################################################
-############################################################################
-#############################################################################
 index = 0
 i = 0
 for node in selectedNodes:
@@ -108,7 +97,7 @@ for node in selectedNodes:
     
             
     if "geo" in str(nodeType):
-        if userMaterial_inpute == 1 and userMaterial_type == 0:
+        if userMaterial_inpute == 1:
             if materieLibrary_created_check == 1:
                 materieLibrary.parm('materials').set(str(i+1))
                 objMaterielPath = node.parm('shop_materialpath').eval()
@@ -190,3 +179,5 @@ stage.layoutChildren()
 
 
 #############################################################################################
+if selectedNodeslen != 0:
+    hou.ui.displayMessage("All Selected Node Tranfer to Lops Network >>>", buttons=("cool",))
